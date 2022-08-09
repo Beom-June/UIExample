@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour
 
     public List<CharacterSet> CharacterGradeSet = new List<CharacterSet>();                         // 희귀도 등급 
 
+    [Header("OBJECT")]
+    public GameObject UI_Inventory;
+    public GameObject UI_Equipment;
+
     bool SteminaBool = false;
     public class CharacterSet
     {
@@ -59,6 +63,20 @@ public class UIManager : MonoBehaviour
                 return -1;
             return 0;
         });
+    }
+
+    // 캐릭터 카드 누를시>> 상세 창 끄고, 장비창 켬
+    public void OnClickActiveEquipment()
+    {
+        UI_Equipment.SetActive(true);
+        UI_Inventory.SetActive(false);
+    }
+
+    // 캐릭터 상세 누를 시>> 장비창 끄고, 상세창 켬
+    public void OnClickExit()
+    {
+        UI_Equipment.SetActive(false);
+        UI_Inventory.SetActive(true);
     }
 
 }
