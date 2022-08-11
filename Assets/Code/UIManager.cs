@@ -20,24 +20,19 @@ public class UIManager : MonoBehaviour
 
     bool SteminaBool = false;
 
-    GameObject UI_Stemina;
-    private void Update()
-    {
-    }
-
-    #region ��ư ���� UI �Լ�
-    // ���׹̳� ǥ�� >> ��ư���� ��� ��
+    #region 클릭 UI 관련
+    // 스테미나 버튼 클릭시
     public void OnClickCheckStemina()
     {
 
-        // ���� ���׹̳��� ���� ������
+        // 누르면
         if (SteminaBool == false)
         {
             for (int i = 0; i < CharacterCard_Stemina.Count; i++)
             {
 
                 CharacterCard_Stemina[i].SetActive(true);
-                //UI_Stemina.SetActive(true);
+                //UI_Stemina[i].SetActive(true);
             }
             SteminaBool = true;
             Text_Fillter.text = string.Format(" 필터 중 ");
@@ -47,21 +42,19 @@ public class UIManager : MonoBehaviour
             for (int i = 0; i < CharacterCard_Stemina.Count; i++)
             {
                 CharacterCard_Stemina[i].SetActive(false);
-                //UI_Stemina.SetActive(false);
+                //UI_Stemina[i].SetActive(false);
             }
             SteminaBool = false;
             Text_Fillter.text = string.Format(" 필터 ");
         }
     }
 
-    // UI : Character_Detail_Info���� ���ĭ ������ UI : Character_Equipment Ȱ��ȭ
     public void OnClickEquipment()
     {
         UI_DetailInfo.SetActive(false);
         UI_Equipment.SetActive(true);
         UI_Inventory.SetActive(false);
     }
-    // ĳ���� ī�� ������>> ī��â OFF, ��â ON. ��ư���� ��� ��
     public void OnClickActiveEquipment()
     {
         UI_DetailInfo.SetActive(false);
@@ -69,7 +62,6 @@ public class UIManager : MonoBehaviour
         UI_Inventory.SetActive(false);
     }
 
-    // ĳ���� �� ���� ��>> ��â OFF, ī��â ��. ��ư���� ��� ��
     public void OnClickExitDetailIfo()
     {
         UI_DetailInfo.SetActive(false);
@@ -77,7 +69,6 @@ public class UIManager : MonoBehaviour
         UI_Inventory.SetActive(true);
     }
 
-    // ��� ��ü ������ >> ���â OFF, ��â ON
     public void OnClickExitEquipment()
     {
         UI_DetailInfo.SetActive(true);

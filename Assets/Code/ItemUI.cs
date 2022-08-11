@@ -76,7 +76,7 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     public void ShowTooltip()
     {
         tooltip.SetActive(true);
-        Debug.Log("Item" + transform.GetSiblingIndex());
+        //Debug.Log("Item" + transform.GetSiblingIndex());
     }
     public void HideTooltip()
     {
