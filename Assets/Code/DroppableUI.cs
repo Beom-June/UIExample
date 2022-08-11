@@ -21,6 +21,7 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IP
     {
         // 아이템 슬롯의 색상을 해당 색상으로 변경
         image.color = Color.yellow;
+        Debug.Log("Dropable" + transform.GetSiblingIndex());
     }
 
     // 마우스 포인터가 현재 아이템 슬롯 영역을 빠져나갈 때 1회 호출

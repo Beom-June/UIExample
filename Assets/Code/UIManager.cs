@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public List<GameObject> CharacterCard = new List<GameObject>();                                         // Ä³¸¯ÅÍ Ä«µå 
-    public List<GameObject> CharacterCard_Stemina;// = new List<GameObject>();                              // Ä³¸¯ÅÍ ½ºÅ×¹Ì³ª UI
+    public List<GameObject> CharacterCard = new List<GameObject>();                                         // Ä³ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ 
+    public List<GameObject> CharacterCard_Stemina;// = new List<GameObject>();                              // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¹Ì³ï¿½ UI
 
 
     [Header("UI Setting")]
-    public GameObject UI_Inventory;                              // ÀÎº¥Åä¸® UI
-    public GameObject UI_DetailInfo;                             // »ó¼¼ Á¤º¸ UI
-    public GameObject UI_Equipment;                             // Àåºñ UI
+    public GameObject UI_Inventory;                              // ï¿½Îºï¿½ï¿½ä¸® UI
+    public GameObject UI_DetailInfo;                             // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI
+    public GameObject UI_Equipment;                             // ï¿½ï¿½ï¿½ UI
 
     [Header("ETC")]
     public Text Text_Fillter;
@@ -20,57 +20,48 @@ public class UIManager : MonoBehaviour
 
     bool SteminaBool = false;
 
-
-    // Ä³¸¯ÅÍ Ä«µå °³¼ö ¼¼±â
-    public void CountCard()
+    GameObject UI_Stemina;
+    private void Update()
     {
     }
 
-
-    #region ¹öÆ° °ü·Ã UI ÇÔ¼ö
-    // ½ºÅ×¹Ì³ª Ç¥½Ã >> ¹öÆ°¿¡¼­ »ç¿ë Áß
+    #region ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ UI ï¿½Ô¼ï¿½
+    // ï¿½ï¿½ï¿½×¹Ì³ï¿½ Ç¥ï¿½ï¿½ >> ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
     public void OnClickCheckStemina()
     {
-        //CharacterCard_Stemina[currentActiveIndex].SetActive(false);
 
-        //currentActiveIndex++;
-
-        //if (currentActiveIndex >= CharacterCard_Stemina.Count)
-        //{
-        //    currentActiveIndex = 0;
-        //}
-
-        // ¸¸¾à ½ºÅ×¹Ì³ª°¡ ²¨Á® ÀÖÀ¸¸é
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¹Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (SteminaBool == false)
         {
             for (int i = 0; i < CharacterCard_Stemina.Count; i++)
             {
 
                 CharacterCard_Stemina[i].SetActive(true);
+                //UI_Stemina.SetActive(true);
             }
             SteminaBool = true;
-            Text_Fillter.text = string.Format(" ÇÊÅÍ Àû¿ë Áß ");
+            Text_Fillter.text = string.Format(" í•„í„° ì¤‘ ");
         }
         else
         {
             for (int i = 0; i < CharacterCard_Stemina.Count; i++)
             {
-
                 CharacterCard_Stemina[i].SetActive(false);
+                //UI_Stemina.SetActive(false);
             }
             SteminaBool = false;
-            Text_Fillter.text = string.Format(" ÇÊÅÍ ");
+            Text_Fillter.text = string.Format(" í•„í„° ");
         }
     }
 
-    // UI : Character_Detail_Info¿¡¼­ ÀåºñÄ­ ´©¸£¸é UI : Character_Equipment È°¼ºÈ­
+    // UI : Character_Detail_Infoï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ UI : Character_Equipment È°ï¿½ï¿½È­
     public void OnClickEquipment()
     {
         UI_DetailInfo.SetActive(false);
         UI_Equipment.SetActive(true);
         UI_Inventory.SetActive(false);
     }
-    // Ä³¸¯ÅÍ Ä«µå ´©¸¦½Ã>> Ä«µåÃ¢ OFF, »ó¼¼Ã¢ ON. ¹öÆ°¿¡¼­ »ç¿ë Áß
+    // Ä³ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>> Ä«ï¿½ï¿½Ã¢ OFF, ï¿½ï¿½Ã¢ ON. ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
     public void OnClickActiveEquipment()
     {
         UI_DetailInfo.SetActive(false);
@@ -78,7 +69,7 @@ public class UIManager : MonoBehaviour
         UI_Inventory.SetActive(false);
     }
 
-    // Ä³¸¯ÅÍ »ó¼¼ ´©¸¦ ½Ã>> »ó¼¼Ã¢ OFF, Ä«µåÃ¢ ÄÔ. ¹öÆ°¿¡¼­ »ç¿ë Áß
+    // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½>> ï¿½ï¿½Ã¢ OFF, Ä«ï¿½ï¿½Ã¢ ï¿½ï¿½. ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
     public void OnClickExitDetailIfo()
     {
         UI_DetailInfo.SetActive(false);
@@ -86,7 +77,7 @@ public class UIManager : MonoBehaviour
         UI_Inventory.SetActive(true);
     }
 
-    // Àåºñ ±³Ã¼ ´©¸¦½Ã >> ÀåºñÃ¢ OFF, »ó¼¼Ã¢ ON
+    // ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ >> ï¿½ï¿½ï¿½Ã¢ OFF, ï¿½ï¿½Ã¢ ON
     public void OnClickExitEquipment()
     {
         UI_DetailInfo.SetActive(true);
